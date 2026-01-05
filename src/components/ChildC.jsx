@@ -1,23 +1,14 @@
-import React, { useContext } from 'react'
-import { themeContext } from '../App'
+import { useContext } from "react";
+import { ThemeContext } from "../App";
 
-const ChildC = () => {
+const ChildA = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
 
-  const [theme, setTheme] = useContext(themeContext);
-
-  function handleClick () {
-    if(theme==='light')
-      setTheme('dark')
-    else
-      setTheme('light')
-  }
   return (
-    <div>
-       <button onClick={handleClick}>
-        click me
-       </button>
-    </div>
-  )
-}
+    <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+      Toggle Theme
+    </button>
+  );
+};
 
-export default ChildC
+export default ChildA;
