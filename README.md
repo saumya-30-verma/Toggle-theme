@@ -1,12 +1,12 @@
 **_Toggle Theme React App_**
 
-A simple React application that demonstrates how to toggle between **Light Mode** and **Dark Mode** using **React Context API**, **useState**, and **useContext**.
+A simple React application that demonstrates how to toggle between **Light Mode** and **Dark Mode** using **React Context API**, **useState**, and **useContext**. This project shows **global state management**, clean component structure, and basic persistent theme logic.
 
 📌 **_Features_**
 
 * 🔄 Toggle between light and dark modes
 
-* 🌈 Dynamic background and text color
+* 🌈 Dynamic background and text color based on theme
 
 * 🧩 Uses React Context to pass theme across components
 
@@ -39,13 +39,13 @@ A simple React application that demonstrates how to toggle between **Light Mode*
 
 const themeContext = createContext();
 
-2. Toggle Function
+2. Toggle Theme Function
 
 Updates the theme on button click:
 
 setTheme(theme === 'light' ? 'dark' : 'light');
 
-3. Use Context in Children
+3. Using Context in Children
 
 Child components access the theme using:
 
@@ -53,11 +53,15 @@ const [theme, setTheme] = useContext(themeContext);
 
 🖥️ **_How to Run the Project_**
 
-1. Install dependencies
+1. Clone the repo:
+
+   git clone https://github.com/saumya-30-verma/Toggle-theme.git
+
+2. Install dependencies
 
    npm install
 
-2. Start the development server
+3. Start the development server
 
    npm run dev
 
@@ -71,4 +75,14 @@ const [theme, setTheme] = useContext(themeContext);
 
 * CSS
 
-* React Hooks: useState, useContext, useRef
+* React Hooks: useState, useContext
+
+💡 **_Learnings / Takeaways_**
+
+* Implemented global theme management using React Context
+
+* Learned how to share state across multiple components
+
+* Used localStorage for persistent user preferences
+
+* Built a clean and reusable component structure
