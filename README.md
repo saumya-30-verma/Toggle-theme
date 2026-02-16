@@ -1,88 +1,153 @@
-**_Toggle Theme React App_**
+**Toggle Theme React App**
 
-A simple React application that demonstrates how to toggle between **Light Mode** and **Dark Mode** using **React Context API**, **useState**, and **useContext**. This project shows **global state management**, clean component structure, and basic persistent theme logic.
+A simple React application that demonstrates how to toggle between Light Mode and Dark Mode using React Context API, useState, useEffect, and useContext. This project showcases global state management, persistent theme storage, and a clean component structure.
 
-📌 **_Features:_**
+📌 **Features:**
 
-* 🔄 Toggle between light and dark modes
+🔄 Toggle between light and dark modes with a single button click
 
-* 🌈 Dynamic background and text color based on theme
+💾 Persistent theme preference using localStorage
 
-* 🧩 Uses React Context to pass theme across components
+🌈 Dynamic styling based on selected theme
 
-* 🏗️ Clean folder structure with multiple child components
+🧩 Uses React Context to manage theme state globally
 
-* ⚡ Built using Vite + React
+⚡ Built with Vite for fast development
 
-  📁 **_Folder Structure:_**
+📁 **Folder Structure:**
 
-  toggle-theme/
-│
-├── src/
-│   ├── App.jsx
-│   ├── App.css
-│   ├── components/
-│   │   ├── ChildA.jsx
-│   │   ├── ChildB.jsx
-│   │   ├── ChildC.jsx
-│   │   └── ...
-│   └── main.jsx
-│
-├── package.json
-├── vite.config.js
-├── README.md
-└── .gitignore
+    toggle-theme/
+    │
+    ├── src/
+    │   ├── App.jsx                 # Main component with context provider
+    │   ├── App.css                  # Styling for container and theme
+    │   ├── components/
+    │   │   └── ChildA.jsx           # Child component with toggle button
+    │   └── main.jsx                  # Application entry point
+    │
+    ├── package.json                   # Project dependencies
+    ├── vite.config.js                 # Vite configuration
+    └── README.md                      # Project documentation
 
-🚀 **_How It Works_**
+🚀 **How It Works:** 
 
-1. A context is created in App.jsx and shared with children:
+**Context Creation**
 
-const themeContext = createContext();
+A context is created in App.jsx and exported for use in child components:
 
-2. Toggle Theme Function
+    javascript
+    const ThemeContext = createContext();
+    export { ThemeContext };
+    
+**Theme State with Persistence**
 
-Updates the theme on button click:
+The theme state initializes from localStorage or defaults to "light":
 
-setTheme(theme === 'light' ? 'dark' : 'light');
+    javascript
+    const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+    });
+**Saving Theme Changes**
 
-3. Using Context in Children
+The useEffect hook saves the theme to localStorage whenever it changes:
 
-Child components access the theme using:
+    javascript
+    useEffect(() => {
+    localStorage.setItem("theme", theme);
+    }, [theme]);
+**Providing Context**
 
-const [theme, setTheme] = useContext(themeContext);
+The ThemeContext.Provider wraps the child component, making the theme state and setter available throughout the component tree:
 
-🖥️ **_How to Run the Project_**
+    javascript
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <div className={`container ${theme}`}>
+    <ChildA />
+    </div>
+    </ThemeContext.Provider>
+**Using Context in Child Component**
 
-1. Clone the repo:
+ChildA.jsx consumes the context and provides the toggle functionality:
 
-   git clone https://github.com/saumya-30-verma/Toggle-theme.git
+    javascript
+    const { theme, setTheme } = useContext(ThemeContext);
 
-2. Install dependencies
+    <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+     Toggle Theme
+    </button>
+**Styling**
 
-   npm install
+The container div applies dynamic classes for theme-based styling:
 
-3. Start the development server
+    css
+    #container {
+    height: 400px;
+    width: 400px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
 
-   npm run dev
+🖥️ **How to Run the Project:**
 
-✨ **_Technologies Used_**
+1. Clone the repository:
 
-* React
+       git clone https://github.com/saumya-30-verma/Toggle-theme.git
+       cd Toggle-theme
 
-* JavaScript (ES6+)
+2. Install dependencies:
 
-* Vite
+       npm install
+   
+3. Start the development server:
 
-* CSS
+       npm run dev
+   
+4. Open your browser:
+   
+       Navigate to http://localhost:5173 to view the application.
 
-* React Hooks: useState, useContext
+✨ **Technologies Used:**
 
-💡 **_Learnings / Takeaways_**
+- React - Frontend library for building user interfaces
 
-* Implemented global theme management using React Context
+- JavaScript (ES6+) - Modern JavaScript features
 
-* Learned how to share state across multiple components
+- Vite - Build tool for fast development
 
-* Used localStorage for persistent user preferences
+- CSS - Styling for components
 
-* Built a clean and reusable component structure
+- React Hooks - useState, useEffect, useContext
+
+- Context API - Global state management
+
+💡 **Key Concepts Demonstrated:**
+
+- Context API: Creating and providing context for global state management
+
+- useState Hook: Managing local component state
+
+- useEffect Hook: Performing side effects (localStorage updates)
+
+- useContext Hook: Consuming context in child components
+
+- localStorage: Persisting user preferences across sessions
+
+- Lazy Initialization: Optimizing state initialization with a function
+
+🎨 **Theme Customization:**
+
+To add theme-specific styling, you can extend the CSS:
+
+    .light {
+     background-color: #ffffff;
+     color: #333333;
+    }
+
+    .dark {
+    background-color: #333333;
+    color: #ffffff;
+    }
