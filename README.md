@@ -2,7 +2,7 @@
 
 A simple React application that demonstrates how to toggle between **Light Mode** and **Dark Mode** using **React Context API**, **useState**, and **useContext**. This project shows **global state management**, clean component structure, and basic persistent theme logic.
 
-📌 **_Features_**
+📌 **_Features:_**
 
 * 🔄 Toggle between light and dark modes
 
@@ -14,7 +14,7 @@ A simple React application that demonstrates how to toggle between **Light Mode*
 
 * ⚡ Built using Vite + React
 
-  📁 **_Folder Structure_**
+  📁 **_Folder Structure:_**
 
   toggle-theme/
 │
