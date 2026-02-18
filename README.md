@@ -39,22 +39,6 @@ A context is created in App.jsx and exported for use in child components:
     const ThemeContext = createContext();
     export { ThemeContext };
     
-**Theme State with Persistence**
-
-The theme state initializes from localStorage or defaults to "light":
-
-    javascript
-    const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("theme") || "light";
-    });
-**Saving Theme Changes**
-
-The useEffect hook saves the theme to localStorage whenever it changes:
-
-    javascript
-    useEffect(() => {
-    localStorage.setItem("theme", theme);
-    }, [theme]);
 **Providing Context**
 
 The ThemeContext.Provider wraps the child component, making the theme state and setter available throughout the component tree:
@@ -65,6 +49,7 @@ The ThemeContext.Provider wraps the child component, making the theme state and 
     <ChildA />
     </div>
     </ThemeContext.Provider>
+    
 **Using Context in Child Component**
 
 ChildA.jsx consumes the context and provides the toggle functionality:
@@ -75,21 +60,6 @@ ChildA.jsx consumes the context and provides the toggle functionality:
     <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
      Toggle Theme
     </button>
-**Styling**
-
-The container div applies dynamic classes for theme-based styling:
-
-    css
-    #container {
-    height: 400px;
-    width: 400px;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: aquamarine;
-}
 
 🖥️ **How to Run the Project:**
 
@@ -130,24 +100,9 @@ The container div applies dynamic classes for theme-based styling:
 
 - useState Hook: Managing local component state
 
-- useEffect Hook: Performing side effects (localStorage updates)
-
 - useContext Hook: Consuming context in child components
 
 - localStorage: Persisting user preferences across sessions
 
 - Lazy Initialization: Optimizing state initialization with a function
 
-🎨 **Theme Customization:**
-
-To add theme-specific styling, you can extend the CSS:
-
-    .light {
-     background-color: #ffffff;
-     color: #333333;
-    }
-
-    .dark {
-    background-color: #333333;
-    color: #ffffff;
-    }
