@@ -24,7 +24,6 @@ function App() {
   return (
   <ThemeContext.Provider value={{ theme, setTheme }}>
     <div id="container" style={{ padding: "50px" }}>
-      <h1>Toggle theme</h1>
       <ChildA />
     </div>
   </ThemeContext.Provider>
