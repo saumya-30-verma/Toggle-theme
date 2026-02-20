@@ -1,3 +1,14 @@
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#container {
+  min-height: 100vh;        /* full screen height */
+  display: flex;
+  flex-direction: column;   /* text upar, button neeche */
+  justify-content: center;  /* vertical center */
+  align-items: center;      /* horizontal center */
+  text-align: center;
+}
 body.light {
   background-color: orange;
   color: black;
@@ -9,4 +20,30 @@ body.dark {
 #container {
   padding: 40px;
 }
+button {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+body.light button {
+  background-color: black;
+  color: white;
+}
+
+body.dark button {
+  background-color: white;
+  color: black;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
