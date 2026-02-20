@@ -13,6 +13,7 @@ const ChildC = () => {
   }
   return (
     <div>
+      <h1 style={{color: "red"}}>VISIBLE TEXT</h1>
       <button onClick={handleClick}>
         Toggle theme
          Switch to {theme === "light" ? "Dark" : "Light"} Mode
