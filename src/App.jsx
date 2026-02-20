@@ -22,12 +22,13 @@ function App() {
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div id="container">
-        <ChildA />
-      </div>
-    </ThemeContext.Provider>
-  );
+  <ThemeContext.Provider value={{ theme, setTheme }}>
+    <div id="container" style={{ padding: "50px" }}>
+      <h1>APP IS WORKING</h1>
+      <ChildA />
+    </div>
+  </ThemeContext.Provider>
+);
 }
 
 export default App;
