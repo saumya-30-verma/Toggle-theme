@@ -47,8 +47,9 @@ button {
 }
 
 button:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
   opacity: 0.9;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 body.light button {
   background-color: black;
@@ -60,7 +61,4 @@ body.dark button {
   color: black;
 }
 
-button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
+
