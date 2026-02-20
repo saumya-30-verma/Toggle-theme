@@ -1,23 +1,35 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import "./App.css";
 import ChildA from "./components/ChildA";
 
 const ThemeContext = createContext();
 
 function App() {
-  const [theme, setTheme]= useState('light');
 
+  const getSystemTheme = () => {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || getSystemTheme();
+  });
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.body.className = theme;   
+  }, [theme]);
 
   return (
-    <ThemeContext.Provider value={[theme, setTheme]}>
-      <div id='container' style={{backgroundColor: theme==='light' ? 'orange': 'green'}}>
-         <ChildA/>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div id="container">
+        <ChildA />
       </div>
-     
     </ThemeContext.Provider>
   );
-};
+}
 
 export default App;
-export { ThemeContext };
+export {themeContext};
 
