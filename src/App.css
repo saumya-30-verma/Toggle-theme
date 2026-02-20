@@ -8,7 +8,17 @@
   align-items: center;
 } 
 body{
+  margin: 0;
+  transition: background-color 0.4s ease, color 0.4s ease;
   background-color: aqua;
+}
+body.light {
+  background-color: orange;
+  color: black;
+}
+body.dark {
+  background-color: green;
+  color: white;
 }
 button {
   font-size: 15px;
