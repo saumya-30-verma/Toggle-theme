@@ -27,6 +27,13 @@ body.dark {
   background-color: green;
   color: white;
 }
+body.dark h1 {
+  color: white;
+}
+
+body.light h1 {
+  color: black;
+}
 #container {
   padding: 40px;
 }
