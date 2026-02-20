@@ -6,4 +6,7 @@ body.dark {
   background-color: green;
   color: white;
 }
+#container {
+  padding: 40px;
+}
 
