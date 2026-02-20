@@ -14,7 +14,7 @@ const ChildC = () => {
   return (
     <div>
       <button onClick={handleClick}>
-        Toggle theme
+         Switch to {theme === "light" ? "Dark" : "Light"} Mode
       </button>
     </div>
   )
