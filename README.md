@@ -106,7 +106,6 @@ ChildA.jsx consumes the context and provides the toggle functionality:
 
 - Lazy Initialization: Optimizing state initialization with a function
 
-<<<<<<< HEAD
 🎨 **Theme Customization:**
 
 To add theme-specific styling, you can extend the CSS:
@@ -120,6 +119,3 @@ To add theme-specific styling, you can extend the CSS:
     background-color: #333333;
     color: #ffffff;
     }
-
-=======
->>>>>>> 2402a109841849e1f76f5398b08e1f0637e24f2a
